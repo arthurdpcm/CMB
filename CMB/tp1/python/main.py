@@ -1,7 +1,7 @@
 from numpy import random
-
+import time
 MIN_NUMBER = 0
-MAX_NUMBER = 100
+MAX_NUMBER = 150
 
 def game():
     ''' The game in itself    
@@ -24,16 +24,26 @@ def game():
         if entry == r:
             print("\n\nGood job, it was "+str(r)+"!!!")
             found=True
-        elif entry>r:
+        elif entry>150 or entry<0:
+            print("You didn't enter a valid number. 10 seconds to think about it.")
+            time.sleep(10)
+        elif entry>=(r+20):
             print("You're too high!")
-        else:
+        elif entry>r:
+            print("You're high but not that far!")
+        elif (entry+20)>=r:
             print("A bit more?")
+        else:
+            print("You are too low!")
     	
  
 # Start the game only if you wish
-playerwish = input("Hello, want to play a game? ")
-if playerwish in ["yes", "y"] :
-	game()
+game()
+player = input("Do you wanna start the game again? (y/n): ")
+while player == "y":
+    game()
 	
+print("Thanks for playing!")
+time.sleep(1)
 
 
