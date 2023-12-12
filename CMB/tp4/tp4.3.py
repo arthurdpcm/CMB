@@ -9,6 +9,7 @@ def sequential_search(arr, target):
   return -1
 
 def binary_search(arr, target):
+  arr.sort()
   low = 0
   high = len(arr)-1 
   while low <= high:
