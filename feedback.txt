@@ -1,0 +1,5 @@
+TP1 : The file hello.py doesn't contain what it's supposed to.
+TP2 : Add option to start on input.txt otherwise Good.
+TP3 : Draw lines betweens the dots in the first graph. You can use scatter instead of plot to get the same result you currently have in graphs 1 and 2.
+TP4 : Binary search should be applied on sorted array. 
+TP5 : Good
