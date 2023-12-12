@@ -92,11 +92,15 @@ def generate_random_grid(rows, cols, density=0.5):
     return random_grid
 
 def main():
-    rows, cols = 30, 40  # Define o tamanho do grid
-    density = 0.5  # Define a densidade de células vivas (50% nesse caso)
-    
-    # Gere o grid inicial aleatório.
-    grid = generate_random_grid(rows, cols, density)
+
+    start_with_file = input("Do you want to start with input.txt? (y/n): ").lower()
+
+    if start_with_file == 'y':
+        grid = read_grid_from_file("input.txt")
+    else:
+        rows, cols = 30, 40  # Define o tamanho do grid
+        density = 0.5  # Define a densidade de células vivas (50% nesse caso)
+        grid = generate_random_grid(rows, cols, density)
     
     # Create a figure and an axes object.
     fig, ax = plt.subplots()
@@ -108,7 +112,7 @@ def main():
     ani = animation.FuncAnimation(
         fig, update_grid, fargs=(grid, img, ax), frames=51, interval=100
     )
-    ani.save("C:/Users/Arthur Duarte/Desktop/AMU/Programming and Algorithms/CMB/tp2/animation.gif", writer="pillow")
+    ani.save("animation.gif", writer="pillow")
     # Show the animation.
     
 import subprocess
@@ -116,5 +120,5 @@ import subprocess
 
 if __name__ == "__main__":
     main()
-    subprocess.run(["C:/Users/Arthur Duarte/Desktop/AMU/Programming and Algorithms/CMB/tp2/animation.gif"], shell=True)
+    subprocess.run(["animation.gif"], shell=True)
 
