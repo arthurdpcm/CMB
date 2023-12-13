@@ -9,7 +9,6 @@ def sequential_search(arr, target):
   return -1
 
 def binary_search(arr, target):
-  arr.sort()
   low = 0
   high = len(arr)-1 
   while low <= high:
@@ -44,7 +43,7 @@ for input_size in input_sizes:
 
   sequential_search_time = measure_execution_time(sequential_search, array, array[-1])
   sequential_search_times.append(sequential_search_time)
-
+  array.sort()
   binary_search_time = measure_execution_time(binary_search, array, array[-1])
   binary_search_times.append(binary_search_time)
 
